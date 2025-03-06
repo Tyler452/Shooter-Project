@@ -1,38 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public GameObject bulletPrefab;
+    public float speed = 5f;
+    public Bullet bulletPrefab;
+    private bool _bulletActive;
 
-  public Transform shottingOffset;
-
-  void Start()
-  {
-    Enemy.OnEnemyDied += EnemyOnOnEnemyDied;
-  }
-
-  void OnDestroy()
-  {
-    Enemy.OnEnemyDied -= EnemyOnOnEnemyDied;
-  }
-
-  void EnemyOnOnEnemyDied(int points)
-  {
-    Debug.Log($"See the hit, points: {points}");
-  }
-  
-  // Update is called once per frame
-    void Update()
+    private void Update()
     {
-      if (Input.GetKeyDown(KeyCode.Space))
-      {
-        GameObject shot = Instantiate(bulletPrefab, shottingOffset.position, Quaternion.identity);
-        Debug.Log("Bang!");
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            transform.position += Vector3.left * (speed * Time.deltaTime);
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            transform.position += Vector3.right * (speed * Time.deltaTime);
 
-        //Destroy(shot, 3f);
+        if (Input.GetKeyDown(KeyCode.Space)) Shoot();
+    }
 
-      }
+    private void Shoot()
+    {
+        if (_bulletActive) return;
+
+        Bullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * bullet.speed;
+        bullet.OnBulletDestroyed += () => _bulletActive = false;
+        _bulletActive = true;
     }
 }
