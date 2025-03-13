@@ -22,7 +22,6 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Load the high score from PlayerPrefs
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateHighScoreUI();
     }
@@ -32,7 +31,6 @@ public class ScoreManager : MonoBehaviour
         score += points;
         UpdateScoreUI();
 
-        // Update high score if the current score exceeds it
         if (score > highScore)
         {
             highScore = score;
@@ -43,8 +41,12 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        scoreText.text = $"Score: {score.ToString("0000")}";
+        if (scoreText != null)
+        {
+            scoreText.text = $"Score: {score.ToString("0000")}"; 
+        }
     }
+
 
     private void UpdateHighScoreUI()
     {

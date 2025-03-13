@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -309880662689943292, guid: 40504ec61ddbbf048bf4112933ca54c3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 42288c0c18dc5e242aa33a703425d663, type: 2}
     - target: {fileID: 762464021508481230, guid: 40504ec61ddbbf048bf4112933ca54c3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -55,6 +59,14 @@ PrefabInstance:
     - target: {fileID: 2685556487405671673, guid: 40504ec61ddbbf048bf4112933ca54c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723822900511699823, guid: 40504ec61ddbbf048bf4112933ca54c3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.3603804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723822900511699823, guid: 40504ec61ddbbf048bf4112933ca54c3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.7800001
       objectReference: {fileID: 0}
     - target: {fileID: 7449906088813761913, guid: 40504ec61ddbbf048bf4112933ca54c3, type: 3}
       propertyPath: 'sprites.Array.data[0]'

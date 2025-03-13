@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonClicked : MonoBehaviour
@@ -9,11 +9,12 @@ public class ButtonClicked : MonoBehaviour
     }
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("Game");
+        //SceneManager.LoadScene("Game");
     }
 
     public void LoadCredits()
     {
-        SceneManager.LoadScene("Credits");
+      //  SceneManager.LoadScene("Credits");
     }
 }
+*/
